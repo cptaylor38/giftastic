@@ -1,29 +1,36 @@
-#header
-{
-    border: 5px solid black;
-    padding: 0;
-    margin: 0;
-}
-
 #greeting
 {
+    margin-bottom: 150px;
+    border: 5px dashed white;
     margin-top: 0;
-    border-bottom: 5px solid black;
     text-align: center;
-    background-color: yellow;
-    padding: 5px;
+    background-color: black;
+    margin-bottom: 0;
+    color: white;
+    -webkit-font-smoothing: antialiased;
+    font-size: 42px;
+    background-image: url('/assets/images/clapperboard_background.jpg')
 }
 
 #gifCategories
 {
-    background-color: teal;
     margin: 0;
     text-align: center;
 }
 
+#limitSelect
+{
+    width: 70%;
+    font-family: 'Monoton', cursive;
+    font-size: 24px;
+    margin: 5px;
+    background-color: black;
+    color: white;
+    border-bottom: 5px solid white;
+}
+
 #mainContent
 {
-    margin-top: 10px;
     display: block;
     position: relative;
 }
@@ -36,40 +43,45 @@
 body
 {
     font-family: 'Monoton', cursive;
+    background-color: black;
 }
 
 #gifAdd
 {
-    width: 100%;
-    background-color: red;
-    border: 5px solid black;
+    background-color: black;
+    border: 5px dashed white;
     position: relative;
-    float: right;
     text-align: center;
-    vertical-align: middle;
     font-family: 'Monoton', cursive;
+}
+
+h1
+{
+    color: white;
+    font-weight: normal;
 }
 
 #gifLoad
 {
-    width: 100%;
-    height: auto;
-    background-color: blue;
-    border: 5px solid black;
+    background-color: black;
     float: left;
     display: flex;
     flex-flow: row wrap;
+    justify-content: center;    
     font-family: 'Monoton', cursive;
 }
 
 #categoryAdd
 {
-    width: 90%;
+    width: 49%;
     margin-top: 20px;
-    border: 5px solid black;
+    border-bottom: 5px solid white;
     font-size: 24px;
     text-align: center;
     font-family: 'Monoton', cursive;
+    background-color: black;
+    color: white;
+    
 }
 
 #gifAmountReturn
@@ -81,21 +93,93 @@ body
 
 #categoryAddButton
 {
-    width: auto;
-    margin-top: 20px;
-    background-color: green;
-    border: 5px solid black;
-    font-size: 24px;
-    font-family: 'Monoton', cursive;
+    -moz-box-shadow: 11px 7px 48px 8px #bec73b;
+	-webkit-box-shadow: 11px 7px 48px 8px #bec73b;
+	box-shadow: 11px 7px 48px 8px #bec73b;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #e7f549), color-stop(1, #8a9940));
+	background:-moz-linear-gradient(top, #e7f549 5%, #8a9940 100%);
+	background:-webkit-linear-gradient(top, #e7f549 5%, #8a9940 100%);
+	background:-o-linear-gradient(top, #e7f549 5%, #8a9940 100%);
+	background:-ms-linear-gradient(top, #e7f549 5%, #8a9940 100%);
+	background:linear-gradient(to bottom, #e7f549 5%, #8a9940 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#e7f549', endColorstr='#8a9940',GradientType=0);
+	background-color:#e7f549;
+	-moz-border-radius:22px;
+	-webkit-border-radius:22px;
+	border-radius:22px;
+	border:1px solid #a1b35b;
+	display:inline-block;
+	cursor:pointer;
+	color:#080108;
+	font-family: 'Monoton', cursive;
+	font-size:28px;
+	padding:7px 25px;
+	text-decoration:none;
+	text-shadow:6px 7px 4px #050500;
+}
+
+#categoryAddButton:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #8a9940), color-stop(1, #e7f549));
+	background:-moz-linear-gradient(top, #8a9940 5%, #e7f549 100%);
+	background:-webkit-linear-gradient(top, #8a9940 5%, #e7f549 100%);
+	background:-o-linear-gradient(top, #8a9940 5%, #e7f549 100%);
+	background:-ms-linear-gradient(top, #8a9940 5%, #e7f549 100%);
+	background:linear-gradient(to bottom, #8a9940 5%, #e7f549 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#8a9940', endColorstr='#e7f549',GradientType=0);
+	background-color:#8a9940;
+}
+#categoryAddButton:active {
+	position:relative;
+	top:1px;
 }
 
 .gifButton
 {
    display: inline-block;
-   font-size: 24px;
+   font-size: 28px;
    margin: 10px;
-   border-radius: 50%;
-   background-color: orange;
-   font-family: 'Monoton', cursive;
-   
+   -moz-box-shadow: 11px 7px 48px 8px #bec73b;
+	-webkit-box-shadow: 11px 7px 48px 8px #bec73b;
+	box-shadow: 11px 7px 48px 8px #bec73b;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #e7f549), color-stop(1, #8a9940));
+	background:-moz-linear-gradient(top, #e7f549 5%, #8a9940 100%);
+	background:-webkit-linear-gradient(top, #e7f549 5%, #8a9940 100%);
+	background:-o-linear-gradient(top, #e7f549 5%, #8a9940 100%);
+	background:-ms-linear-gradient(top, #e7f549 5%, #8a9940 100%);
+	background:linear-gradient(to bottom, #e7f549 5%, #8a9940 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#e7f549', endColorstr='#8a9940',GradientType=0);
+	background-color:#e7f549;
+	-moz-border-radius:22px;
+	-webkit-border-radius:22px;
+	border-radius:22px;
+	border:1px solid #a1b35b;
+	display:inline-block;
+	cursor:pointer;
+	color:#080108;
+	font-family: 'Monoton', cursive;
+	font-size:24px;
+	padding:7px 25px;
+	text-decoration:none;
+	text-shadow:6px 7px 4px #050500;
+}
+
+.gifButton:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #8a9940), color-stop(1, #e7f549));
+	background:-moz-linear-gradient(top, #8a9940 5%, #e7f549 100%);
+	background:-webkit-linear-gradient(top, #8a9940 5%, #e7f549 100%);
+	background:-o-linear-gradient(top, #8a9940 5%, #e7f549 100%);
+	background:-ms-linear-gradient(top, #8a9940 5%, #e7f549 100%);
+	background:linear-gradient(to bottom, #8a9940 5%, #e7f549 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#8a9940', endColorstr='#e7f549',GradientType=0);
+	background-color:#8a9940;
+}
+.gifButton:active {
+	position:relative;
+	top:1px;
+}
+
+#alerts
+{
+    color: white;
+    font-size: 24px;
 }

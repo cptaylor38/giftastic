@@ -20,14 +20,15 @@
         </div>
         <div class='row' id='mainContent'>
             <div class='col-lg-12 col-sm-12' id='gifAdd'>
-                <input type='text' id='categoryAdd'>
-                <select class="custom-select" id="limitSelect">
-                    <option selected>Choose...</option>
-                    <option value="4">4</option>
-                    <option value="8">8</option>
-                    <option value="12">12</option>
-                </select>
+                <h1>Gif amount: <select class="custom-select" id="limitSelect">
+                        <option selected>Choose...</option>
+                        <option value="4">4</option>
+                        <option value="8">8</option>
+                        <option value="12">12</option>
+                    </select></h1>
+                <h1>Category you'd like to add: <input type='text' id='categoryAdd'></h1>
                 <input id='categoryAddButton' type='submit'>
+                <p id='alerts'></p>
 
             </div>
             <div class='row' id='gifCategories'></div>

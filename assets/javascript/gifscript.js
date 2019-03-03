@@ -38,14 +38,25 @@ window.onload = function () {
 
 $("#categoryAddButton").on("click", function (event) {
     event.preventDefault();
+    var $limit = $('#limitSelect').val();
+    var $alerts = $('#alerts');
 
-    var $categoryAdd = $('#categoryAdd').val().toLowerCase();
-    if ($categoryAdd === '') {
-        alert("Cannot submit an empty category.");
+    if ($limit !== 4 / $limit !== 8 / $limit !== 12) {
+        $alerts.text("Please choose the amount of gifs you would like to load.");
+
     }
     else {
-        addCategoryButton($categoryAdd);
+        $alerts.empty();
+        var $categoryAdd = $('#categoryAdd').val().toLowerCase();
+        if ($categoryAdd === '') {
+            $alerts.text("You have to enter a category first.");
+        }
+        else {
+            addCategoryButton($categoryAdd);
+        }
     }
+
+
 });
 
 addCategoryButton = function ($categoryAdd) {
@@ -89,6 +100,7 @@ $(document.body).on('click', '.gifButton', function (event) {
     }).then(function (response) {
 
         var results = response.data;
+        console.log(results);
 
         for (var i = 0; i < results.length; i++) {
             var gifDiv = $("<div>");
@@ -98,14 +110,35 @@ $(document.body).on('click', '.gifButton', function (event) {
 
             var p = $("<p>").text("Rating: " + rating);
 
-            var categoryImage = $("<img>");
-            categoryImage.attr("src", results[i].images.fixed_height.url);
+            var $categoryImage = $("<img>");
+            $categoryImage.attr({
+                "src": results[i].images.fixed_height_still.url,
+                "data-still": results[i].images.fixed_height_still.url,
+                "data-animate": results[i].images.fixed_height.url,
+                "data-state": "still"
+            });
+            $categoryImage.addClass('gif');
 
-            gifDiv.prepend(categoryImage, p);
+            gifDiv.prepend($categoryImage, p);
 
             $gifLoad.prepend(gifDiv);
         }
+
+        $(".gif").on("click", function () {
+            var state = $(this).attr("data-state");
+
+            if (state === "still") {
+                $(this).attr("src", $(this).attr("data-animate"));
+                $(this).attr("data-state", "animate");
+                $(this).attr()
+            } else {
+                $(this).attr("src", $(this).attr("data-still"));
+                $(this).attr("data-state", "still");
+            }
+        });
     });
 });
+
+
 
 
