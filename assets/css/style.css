@@ -9,13 +9,17 @@
     color: white;
     -webkit-font-smoothing: antialiased;
     font-size: 42px;
-    background-image: url('/assets/images/clapperboard_background.jpg')
+    background-image: url('../images/clapperboard.jpg');
+    
+     
 }
 
 #gifCategories
 {
     margin: 0;
     text-align: center;
+    background-image: url('../images/clapperboard.jpg');
+    border: 5px dashed white;
 }
 
 #limitSelect
@@ -40,6 +44,11 @@
     margin: 40px;
 }
 
+.gif
+{
+    border: 5px dotted white;
+}
+
 body
 {
     font-family: 'Monoton', cursive;
@@ -61,14 +70,22 @@ h1
     font-weight: normal;
 }
 
+p
+{
+    color: white;
+    font-size: 24px;
+}
+
 #gifLoad
 {
     background-color: black;
-    float: left;
     display: flex;
     flex-flow: row wrap;
     justify-content: center;    
     font-family: 'Monoton', cursive;
+    background-image: url('../images/stage.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
 }
 
 #categoryAdd
@@ -110,7 +127,7 @@ h1
 	border:1px solid #a1b35b;
 	display:inline-block;
 	cursor:pointer;
-	color:#080108;
+	color:white;
 	font-family: 'Monoton', cursive;
 	font-size:28px;
 	padding:7px 25px;
@@ -155,12 +172,12 @@ h1
 	border:1px solid #a1b35b;
 	display:inline-block;
 	cursor:pointer;
-	color:#080108;
+	color:white;
 	font-family: 'Monoton', cursive;
 	font-size:24px;
 	padding:7px 25px;
 	text-decoration:none;
-	text-shadow:6px 7px 4px #050500;
+    text-shadow:6px 7px 4px #050500;
 }
 
 .gifButton:hover {

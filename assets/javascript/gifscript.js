@@ -1,27 +1,20 @@
 var categoryCount = 1;
 var categoryArray = [];
 
-categoryArray = JSON.parse(localStorage.getItem('categoryArray'));
-// Push the new data (whether it be an object or anything else) onto the array
-localStorage.setItem('categoryArray', JSON.stringify(categoryArray));
-
-
-
-
-
 
 
 
 queryURL = "https://api.giphy.com/v1/gifs/search?";
 
 window.onload = function () {
-    var $savedCategories = JSON.parse(localStorage.getItem('categoryArray'));
-    console.log($savedCategories);
-    if ($savedCategories.length === 0) {
+    $('#backgroundmusic').autoplay = true;
+
+    if (categoryArray.length === 0) {
 
     }
     else {
-        $savedCategories.forEach(element => {
+        console.log(categoryArray.length);
+        categoryArray.forEach(element => {
             $gifSelect = $('#gifCategories');
             $categoryButton = $('<button>');
             $categoryButton.text(element);
@@ -41,12 +34,9 @@ $("#categoryAddButton").on("click", function (event) {
     var $limit = $('#limitSelect').val();
     var $alerts = $('#alerts');
 
-    if ($limit !== 4 / $limit !== 8 / $limit !== 12) {
-        $alerts.text("Please choose the amount of gifs you would like to load.");
-
-    }
-    else {
+    if ($limit === '4' || $limit === '8' || $limit === '12') {
         $alerts.empty();
+
         var $categoryAdd = $('#categoryAdd').val().toLowerCase();
         if ($categoryAdd === '') {
             $alerts.text("You have to enter a category first.");
@@ -55,18 +45,21 @@ $("#categoryAddButton").on("click", function (event) {
             addCategoryButton($categoryAdd);
         }
     }
+    else {
+        $alerts.text("Please choose the amount of gifs you would like to load.");
+    }
 
 
 });
 
 addCategoryButton = function ($categoryAdd) {
-
     if (categoryArray.includes($categoryAdd)) {
         console.log('used this');
     }
     else {
         categoryArray.push($categoryAdd);
-        localStorage.setItem('categoryArray', JSON.stringify(categoryArray));
+
+
         $gifSelect = $('#gifCategories');
         $categoryButton = $('<button>');
         $categoryButton.text($categoryAdd);
@@ -138,6 +131,9 @@ $(document.body).on('click', '.gifButton', function (event) {
         });
     });
 });
+
+
+
 
 
 
