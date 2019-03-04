@@ -10,8 +10,8 @@
     -webkit-font-smoothing: antialiased;
     font-size: 42px;
     background-image: url('../images/clapperboard.jpg');
+    text-shadow:6px 7px 4px #050500;
     
-     
 }
 
 #gifCategories
@@ -68,12 +68,14 @@ h1
 {
     color: white;
     font-weight: normal;
+    text-shadow:6px 7px 4px yellow;
 }
 
 p
 {
     color: white;
     font-size: 24px;
+    text-shadow:6px 7px 4px #050500;
 }
 
 #gifLoad
@@ -86,6 +88,7 @@ p
     background-image: url('../images/stage.png');
     background-size: 100% 100%;
     background-repeat: no-repeat;
+    
 }
 
 #categoryAdd
@@ -98,6 +101,7 @@ p
     font-family: 'Monoton', cursive;
     background-color: black;
     color: white;
+    
     
 }
 
@@ -132,7 +136,8 @@ p
 	font-size:28px;
 	padding:7px 25px;
 	text-decoration:none;
-	text-shadow:6px 7px 4px #050500;
+    text-shadow:6px 7px 4px #050500;
+    
 }
 
 #categoryAddButton:hover {
@@ -143,7 +148,8 @@ p
 	background:-ms-linear-gradient(top, #8a9940 5%, #e7f549 100%);
 	background:linear-gradient(to bottom, #8a9940 5%, #e7f549 100%);
 	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#8a9940', endColorstr='#e7f549',GradientType=0);
-	background-color:#8a9940;
+    background-color:#8a9940;
+    
 }
 #categoryAddButton:active {
 	position:relative;
@@ -178,6 +184,7 @@ p
 	padding:7px 25px;
 	text-decoration:none;
     text-shadow:6px 7px 4px #050500;
+    
 }
 
 .gifButton:hover {
@@ -188,7 +195,8 @@ p
 	background:-ms-linear-gradient(top, #8a9940 5%, #e7f549 100%);
 	background:linear-gradient(to bottom, #8a9940 5%, #e7f549 100%);
 	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#8a9940', endColorstr='#e7f549',GradientType=0);
-	background-color:#8a9940;
+    background-color:#8a9940;
+    
 }
 .gifButton:active {
 	position:relative;

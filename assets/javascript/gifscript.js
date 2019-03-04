@@ -1,20 +1,22 @@
 var categoryCount = 1;
 var categoryArray = [];
-
+var savedArray = [];
 
 
 
 queryURL = "https://api.giphy.com/v1/gifs/search?";
 
-window.onload = function () {
-    $('#backgroundmusic').autoplay = true;
 
+
+window.onload = function () {
+    var categoryArray = JSON.parse(localStorage.getItem('savedCategories'));
     if (categoryArray.length === 0) {
 
     }
     else {
         console.log(categoryArray.length);
         categoryArray.forEach(element => {
+            savedArray.push(element);
             $gifSelect = $('#gifCategories');
             $categoryButton = $('<button>');
             $categoryButton.text(element);
@@ -27,7 +29,6 @@ window.onload = function () {
         });
     }
 }
-
 
 $("#categoryAddButton").on("click", function (event) {
     event.preventDefault();
@@ -53,12 +54,12 @@ $("#categoryAddButton").on("click", function (event) {
 });
 
 addCategoryButton = function ($categoryAdd) {
-    if (categoryArray.includes($categoryAdd)) {
+    if (savedArray.includes($categoryAdd)) {
         console.log('used this');
     }
     else {
-        categoryArray.push($categoryAdd);
-
+        savedArray.push($categoryAdd);
+        localStorage.setItem("savedCategories", JSON.stringify(savedArray));
 
         $gifSelect = $('#gifCategories');
         $categoryButton = $('<button>');
@@ -69,6 +70,7 @@ addCategoryButton = function ($categoryAdd) {
         });
         $categoryButton.addClass('gifButton');
         $gifSelect.append($categoryButton);
+
     }
 
 }
