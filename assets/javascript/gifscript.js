@@ -3,10 +3,7 @@ var categoryArray = [];
 var savedArray = [];
 var badQuery = [];
 
-
-
 queryURL = "https://api.giphy.com/v1/gifs/search?";
-
 
 
 window.onload = function () {
@@ -23,7 +20,6 @@ window.onload = function () {
         $categoryButton.addClass('gifButton');
         $gifSelect.append($categoryButton);
     });
-
 }
 
 $("#categoryAddButton").on("click", function (event) {
@@ -46,8 +42,6 @@ $("#categoryAddButton").on("click", function (event) {
     else {
         $alerts.text("Please choose the amount of gifs you would like to load.");
     }
-
-
 });
 
 addCategoryButton = function ($categoryAdd) {
@@ -71,10 +65,7 @@ addCategoryButton = function ($categoryAdd) {
         });
         $categoryButton.addClass('gifButton');
         $gifSelect.append($categoryButton);
-
-
     }
-
 }
 
 $(document.body).on('click', '.gifButton', function (event) {
@@ -129,8 +120,6 @@ $(document.body).on('click', '.gifButton', function (event) {
                 $gifLoad.prepend(gifDiv);
             }
         }
-
-
 
         $(".gif").on("click", function () {
             var state = $(this).attr("data-state");
