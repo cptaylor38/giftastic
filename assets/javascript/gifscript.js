@@ -1,6 +1,7 @@
 var categoryCount = 1;
 var categoryArray = [];
 var savedArray = [];
+var badQuery = [];
 
 
 
@@ -39,6 +40,7 @@ $("#categoryAddButton").on("click", function (event) {
         $alerts.empty();
 
         var $categoryAdd = $('#categoryAdd').val().toLowerCase();
+
         if ($categoryAdd === '') {
             $alerts.text("You have to enter a category first.");
         }
@@ -54,8 +56,12 @@ $("#categoryAddButton").on("click", function (event) {
 });
 
 addCategoryButton = function ($categoryAdd) {
-    if (savedArray.includes($categoryAdd)) {
+    $('#categoryAdd').val('');
+    if (savedArray.includes($categoryAdd) || badQuery.includes($categoryAdd)) {
         console.log('used this');
+        if (badQuery.includes($categoryAdd)) {
+            $('#alerts').text("This search returned no results last time. Please try another.");
+        }
     }
     else {
         savedArray.push($categoryAdd);
@@ -71,13 +77,15 @@ addCategoryButton = function ($categoryAdd) {
         $categoryButton.addClass('gifButton');
         $gifSelect.append($categoryButton);
 
+
     }
 
 }
 
 $(document.body).on('click', '.gifButton', function (event) {
     event.preventDefault();
-
+    var self = this;
+    $('#alerts').empty();
     var $gifLoad = $('#gifLoad');
     $gifLoad.empty();
     var $limit = $('#limitSelect').val();
@@ -93,31 +101,41 @@ $(document.body).on('click', '.gifButton', function (event) {
             limit: $limit
         }
     }).then(function (response) {
-
         var results = response.data;
         console.log(results);
-
-        for (var i = 0; i < results.length; i++) {
-            var gifDiv = $("<div>");
-            gifDiv.addClass('gifDiv');
-
-            var rating = results[i].rating;
-
-            var p = $("<p>").text("Rating: " + rating);
-
-            var $categoryImage = $("<img>");
-            $categoryImage.attr({
-                "src": results[i].images.fixed_height_still.url,
-                "data-still": results[i].images.fixed_height_still.url,
-                "data-animate": results[i].images.fixed_height.url,
-                "data-state": "still"
-            });
-            $categoryImage.addClass('gif');
-
-            gifDiv.prepend($categoryImage, p);
-
-            $gifLoad.prepend(gifDiv);
+        if (results.length === 0) {
+            $('#alerts').text("No results found. Please try another search.");
+            self.remove();
+            savedArray.splice(savedArray.indexOf($(self).attr('data-category')));
+            localStorage.setItem("savedCategories", JSON.stringify(savedArray));
+            badQuery.push($(self).attr('data-category'));
+            console.log(badQuery);
         }
+        else {
+            for (var i = 0; i < results.length; i++) {
+                var gifDiv = $("<div>");
+                gifDiv.addClass('gifDiv');
+
+                var rating = results[i].rating;
+
+                var p = $("<p>").text("Rating: " + rating);
+
+                var $categoryImage = $("<img>");
+                $categoryImage.attr({
+                    "src": results[i].images.fixed_height_still.url,
+                    "data-still": results[i].images.fixed_height_still.url,
+                    "data-animate": results[i].images.fixed_height.url,
+                    "data-state": "still"
+                });
+                $categoryImage.addClass('gif');
+
+                gifDiv.prepend($categoryImage, p);
+
+                $gifLoad.prepend(gifDiv);
+            }
+        }
+
+
 
         $(".gif").on("click", function () {
             var state = $(this).attr("data-state");
