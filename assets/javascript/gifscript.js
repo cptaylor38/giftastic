@@ -83,8 +83,8 @@ $(document.body).on('click', '.gifButton', function (event) {
         method: "GET",
         data: {
             q: '' + $gifCategory,
-            apikey: 'fcEH4tpKk10gcbgphb7MecpbedH4Hq4U',
-            limit: $limit
+            apikey: //leaving this out per Patrick for grading ta to submit their own api key,
+                limit: $limit
         }
     }).then(function (response) {
         var results = response.data;
