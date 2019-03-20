@@ -8,18 +8,21 @@ queryURL = "https://api.giphy.com/v1/gifs/search?";
 
 window.onload = function () {
     var categoryArray = JSON.parse(localStorage.getItem('savedCategories'));
-    categoryArray.forEach(element => {
-        savedArray.push(element);
-        $gifSelect = $('#gifCategories');
-        $categoryButton = $('<button>');
-        $categoryButton.text(element);
-        $categoryButton.attr({
-            'id': 'item-' + categoryCount,
-            'data-category': element
+    if (categoryArray) {
+        categoryArray.forEach(element => {
+            savedArray.push(element);
+            $gifSelect = $('#gifCategories');
+            $categoryButton = $('<button>');
+            $categoryButton.text(element);
+            $categoryButton.attr({
+                'id': 'item-' + categoryCount,
+                'data-category': element
+            });
+            $categoryButton.addClass('gifButton');
+            $gifSelect.append($categoryButton);
         });
-        $categoryButton.addClass('gifButton');
-        $gifSelect.append($categoryButton);
-    });
+    }
+
 }
 
 $("#categoryAddButton").on("click", function (event) {
@@ -83,8 +86,8 @@ $(document.body).on('click', '.gifButton', function (event) {
         method: "GET",
         data: {
             q: '' + $gifCategory,
-            apikey: //leaving this out per Patrick for grading ta to submit their own api key,
-                limit: $limit
+            apikey: '',
+            limit: $limit
         }
     }).then(function (response) {
         var results = response.data;
