@@ -86,7 +86,7 @@ $(document.body).on('click', '.gifButton', function (event) {
         method: "GET",
         data: {
             q: '' + $gifCategory,
-            apikey: '',
+            apikey: 'fcEH4tpKk10gcbgphb7MecpbedH4Hq4U',
             limit: $limit
         }
     }).then(function (response) {
